@@ -13,6 +13,7 @@ export default mergeConfig(
       },
       environment: 'happy-dom',
       include: ['src/**/*.test.tsx'],
+      setupFiles: 'src/__test__/setup.ts',
     },
   }),
 );

@@ -59,7 +59,7 @@ export default [
         rules: { 'n/no-unpublished-import': 'error' },
       },
       {
-        files: ['**/*.{d,test}.ts?(x)'],
+        files: ['**/*.{d,test}.ts?(x)', '**/__test__/*.ts'],
         rules: { 'n/no-unpublished-import': 'off' },
       },
     ],
@@ -158,6 +158,7 @@ export default [
           'plugin:vitest/all',
           'plugin:jest-formatting/strict',
           'plugin:testing-library/react',
+          'plugin:jest-dom/recommended',
         ],
         files: ['**/*.test.ts?(x)'],
         rules: {
