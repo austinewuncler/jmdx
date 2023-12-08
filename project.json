@@ -1,0 +1,4 @@
+{
+  "name": "jmdx",
+  "targets": { "start": { "dependsOn": [{ "target": "build" }] } }
+}

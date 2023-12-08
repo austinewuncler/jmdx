@@ -1,0 +1,6 @@
+{
+  "affected": { "defaultBase": "main" },
+  "targetDefaults": {
+    "build": { "cache": true, "outputs": ["{projectRoot}/dist"] }
+  }
+}
