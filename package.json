@@ -1,0 +1,26 @@
+{
+  "name": "jmdx",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@tsconfig/node-lts": "^18.12.5",
+    "@tsconfig/strictest": "^2.0.2",
+    "@types/node": "^20.10.4",
+    "rollup": "^4.6.1",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-sizes": "^1.0.6",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^11.1.0",
+    "chalk": "^5.3.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  }
+}
