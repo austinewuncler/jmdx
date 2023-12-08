@@ -1,9 +1,9 @@
-import { defineConfig } from 'rollup';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import sizes from 'rollup-plugin-sizes';
+import { defineConfig } from 'rollup';
 import filesize from 'rollup-plugin-filesize';
+import sizes from 'rollup-plugin-sizes';
 
 export default defineConfig({
   input: 'src/index.ts',

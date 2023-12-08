@@ -1,3 +1,4 @@
 .nx/cache/
 dist/
 node_modules/
+.eslintcache
