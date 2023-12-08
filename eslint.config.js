@@ -1,3 +1,5 @@
+import { resolve } from 'node:path';
+
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
@@ -34,6 +36,13 @@ export default [
         extends: 'plugin:@typescript-eslint/disable-type-checked',
         files: ['**/*.js'],
       },
+      {
+        files: ['apps/local/vite.config.ts'],
+        parserOptions: {
+          project: 'tsconfig.node.json',
+          tsconfigRootDir: resolve('apps', 'local'),
+        },
+      },
     ],
     parserOptions: { project: true },
   }),
@@ -46,6 +55,7 @@ export default [
         files: ['**/src/**/*.ts?(x)'],
         rules: { 'n/no-unpublished-import': 'error' },
       },
+      { files: ['**/*.d.ts'], rules: { 'n/no-unpublished-import': 'off' } },
     ],
     rules: {
       'n/no-missing-import': 'off',

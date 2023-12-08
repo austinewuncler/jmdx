@@ -17,6 +17,7 @@
     "@types/node": "^20.10.4",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
+    "concurrently": "^8.2.2",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -38,12 +39,15 @@
   },
   "dependencies": {
     "@commander-js/extra-typings": "^11.1.0",
+    "@fastify/http-proxy": "^9.3.0",
+    "@fastify/static": "^6.12.0",
+    "@jmdx/local": "workspace:^",
     "chalk": "^5.3.0",
     "fastify": "^4.24.3"
   },
   "scripts": {
     "build": "nx exec -- nx exec -- rollup -c",
-    "dev": "tsx watch src/index.ts",
+    "dev": "concurrently -n=local,main --hide=local -Pk -p=none 'nx dev @jmdx/local' 'tsx watch src/index.ts {@}' --",
     "lint": "nx exec -- eslint . --fix --max-warnings=0 --report-unused-disable-directives --cache",
     "start": "nx exec -- node dist/index.js",
     "prepare": "husky install"
