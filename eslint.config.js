@@ -17,6 +17,7 @@ export default [
     rules: {
       ...all.rules,
       'no-console': ['error', { allow: ['error', 'info'] }],
+      'no-ternary': 'off',
       'one-var': ['error', 'never'],
       'sort-imports': 'off',
     },

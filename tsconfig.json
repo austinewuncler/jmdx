@@ -3,6 +3,10 @@
     "@tsconfig/strictest/tsconfig.json",
     "@tsconfig/node-lts/tsconfig.json"
   ],
-  "compilerOptions": { "module": "ESNext", "moduleResolution": "Bundler" },
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noPropertyAccessFromIndexSignature": false
+  },
   "include": ["src"]
 }
