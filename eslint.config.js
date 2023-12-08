@@ -3,6 +3,8 @@ import { resolve } from 'node:path';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
+import reactAll from 'eslint-plugin-react/configs/all.js';
+import globals from 'globals';
 
 const compat = new FlatCompat();
 const { all } = js.configs;
@@ -85,5 +87,40 @@ export default [
     'plugin:sonarjs/recommended',
     'plugin:promise/recommended',
   ),
+
+  // React
+  {
+    files: ['apps/local/src/**/*.ts?(x)'],
+    ...reactAll,
+    languageOptions: {
+      ...reactAll.languageOptions,
+      globals: { ...globals.serviceworker, ...globals.browser },
+    },
+    rules: {
+      ...reactAll.rules,
+      'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+    },
+    settings: { react: { version: 'detect' } },
+  },
+  ...compat.config({
+    overrides: [
+      {
+        extends: 'plugin:react-hooks/recommended',
+        files: ['apps/local/src/**/*.ts?(x)'],
+      },
+      {
+        extends: 'plugin:jsx-a11y/strict',
+        files: ['apps/local/src/**/*.tsx'],
+        plugins: ['react-refresh'],
+        rules: {
+          'react-refresh/only-export-components': [
+            'warn',
+            { allowConstantExport: true },
+          ],
+        },
+      },
+    ],
+  }),
+
   prettierConfig,
 ];
