@@ -1,0 +1,7 @@
+{
+  "**/*.{js,ts,tsx}": [
+    "eslint --fix --max-warnings=0 --report-unused-disable-directives --cache",
+    "prettier --write --cache"
+  ],
+  "!**/*.{js,ts,tsx}": "prettier --write --ignore-unknown --cache"
+}
