@@ -119,7 +119,7 @@ export default [
         files: ['apps/local/src/**/*.ts?(x)'],
       },
       {
-        extends: 'plugin:jsx-a11y/strict',
+        extends: ['plugin:jsx-a11y/strict', 'plugin:tailwindcss/recommended'],
         files: ['apps/local/src/**/*.tsx'],
         plugins: ['react-refresh'],
         rules: {
@@ -127,6 +127,11 @@ export default [
             'warn',
             { allowConstantExport: true },
           ],
+        },
+        settings: {
+          tailwindcss: {
+            config: resolve('apps', 'local', 'tailwind.config.ts'),
+          },
         },
       },
     ],

@@ -1,1 +1,1 @@
-export { ClearCellList } from './ClearCellList';
+export { ClearCellListButton } from './ClearCellListButton';

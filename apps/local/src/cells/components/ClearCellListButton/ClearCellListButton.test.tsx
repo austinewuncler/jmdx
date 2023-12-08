@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { $cells } from '~/cells/state';
 import { createCells } from '~/cells/utils';
 
-import ClearCellList from './ClearCellList';
+import ClearCellListButton from './ClearCellListButton';
 
 describe('clear cell-list', () => {
   it('should clear cell-list when clicked', async () => {
@@ -15,7 +15,7 @@ describe('clear cell-list', () => {
     expect($cells).toHaveLength(2);
 
     const { click } = userEvent.setup();
-    render(<ClearCellList />);
+    render(<ClearCellListButton />);
     await click(screen.getByRole('button', { name: 'clear cell-list' }));
 
     expect($cells).toHaveLength(0);
