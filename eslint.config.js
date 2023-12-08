@@ -132,5 +132,18 @@ export default [
     ],
   }),
 
+  ...compat.config({
+    overrides: [
+      {
+        extends: [
+          'plugin:vitest/all',
+          'plugin:jest-formatting/strict',
+          'plugin:testing-library/react',
+        ],
+        files: ['**/*.test.ts?(x)'],
+      },
+    ],
+  }),
+
   prettierConfig,
 ];

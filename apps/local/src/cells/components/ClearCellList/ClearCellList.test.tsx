@@ -8,13 +8,16 @@ import { createCells } from '~/cells/utils';
 
 import ClearCellList from './ClearCellList';
 
-describe('ClearCellList', () => {
+describe('clear cell-list', () => {
   it('should clear cell-list when clicked', async () => {
     $cells.set(createCells(['jsx', 'md']));
-    expect($cells.length).toBe(2);
+
+    expect($cells).toHaveLength(2);
+
     const { click } = userEvent.setup();
     render(<ClearCellList />);
     await click(screen.getByRole('button', { name: 'clear cell-list' }));
-    expect($cells.length).toBe(0);
+
+    expect($cells).toHaveLength(0);
   });
 });
