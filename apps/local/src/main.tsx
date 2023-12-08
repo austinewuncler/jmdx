@@ -3,7 +3,7 @@ import './index.css';
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { ClearCellListButton } from './cells/components';
+import { ClearCellListButton, InsertCell } from './cells/components';
 import { ToggleDarkModeButton } from './theme/components';
 
 const rootDiv = document.querySelector('#root');
@@ -15,5 +15,8 @@ if (rootDiv)
         <ClearCellListButton />
         <ToggleDarkModeButton />
       </header>
+      <main className="px-4 py-8 sm:container sm:mx-auto sm:px-0">
+        <InsertCell />
+      </main>
     </StrictMode>,
   );

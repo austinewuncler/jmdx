@@ -118,6 +118,10 @@ export default [
       ],
       'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
       'react/jsx-props-no-spreading': ['error', { exceptions: ['button'] }],
+      'react/require-default-props': [
+        'error',
+        { functions: 'defaultArguments' },
+      ],
     },
     settings: { react: { version: 'detect' } },
   },
@@ -156,6 +160,10 @@ export default [
           'plugin:testing-library/react',
         ],
         files: ['**/*.test.ts?(x)'],
+        rules: {
+          'testing-library/no-manual-cleanup': 'off',
+          'vitest/no-hooks': ['error', { allow: ['afterEach', 'beforeEach'] }],
+        },
       },
     ],
   }),
