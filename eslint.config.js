@@ -13,7 +13,7 @@ const { all } = js.configs;
  * @type {import('eslint').Linter.FlatConfig[]}
  */
 export default [
-  { ignores: ['**/dist', '**/.nx'] },
+  { ignores: ['**/.nx', '**/coverage', '**/dist'] },
 
   // Javascript
   {
@@ -21,6 +21,7 @@ export default [
     rules: {
       ...all.rules,
       'no-console': ['error', { allow: ['error', 'info'] }],
+      'no-magic-numbers': 'off',
       'no-ternary': 'off',
       'one-var': ['error', 'never'],
       'sort-imports': 'off',
@@ -39,7 +40,7 @@ export default [
         files: ['**/*.js'],
       },
       {
-        files: ['apps/local/vite.config.ts'],
+        files: ['apps/local/*.config.ts'],
         parserOptions: {
           project: 'tsconfig.node.json',
           tsconfigRootDir: resolve('apps', 'local'),
@@ -57,7 +58,10 @@ export default [
         files: ['**/src/**/*.ts?(x)'],
         rules: { 'n/no-unpublished-import': 'error' },
       },
-      { files: ['**/*.d.ts'], rules: { 'n/no-unpublished-import': 'off' } },
+      {
+        files: ['**/*.{d,test}.ts?(x)'],
+        rules: { 'n/no-unpublished-import': 'off' },
+      },
     ],
     rules: {
       'n/no-missing-import': 'off',
@@ -73,6 +77,7 @@ export default [
       'import/first': 'error',
       'import/newline-after-import': 'error',
       'import/no-duplicates': 'error',
+      'import/no-unresolved': ['error', { ignore: ['^~/'] }],
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': 'error',
     },
@@ -82,11 +87,12 @@ export default [
     },
   }),
 
-  ...compat.extends(
-    'plugin:unicorn/all',
-    'plugin:sonarjs/recommended',
-    'plugin:promise/recommended',
-  ),
+  ...compat.config({
+    extends: 'plugin:unicorn/all',
+    rules: { 'unicorn/filename-case': 'off' },
+  }),
+
+  ...compat.extends('plugin:sonarjs/recommended', 'plugin:promise/recommended'),
 
   // React
   {
@@ -98,6 +104,10 @@ export default [
     },
     rules: {
       ...reactAll.rules,
+      'react/function-component-definition': [
+        'error',
+        { namedComponents: 'arrow-function' },
+      ],
       'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     },
     settings: { react: { version: 'detect' } },

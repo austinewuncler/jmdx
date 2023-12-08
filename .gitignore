@@ -1,4 +1,5 @@
 .nx/cache/
+coverage/
 dist/
 node_modules/
 .eslintcache

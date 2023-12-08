@@ -1,4 +1,7 @@
 {
   "name": "jmdx",
-  "targets": { "start": { "dependsOn": [{ "target": "build" }] } }
+  "targets": {
+    "start": { "dependsOn": [{ "target": "build" }] },
+    "test": { "executor": "nx:noop" }
+  }
 }

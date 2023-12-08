@@ -55,6 +55,7 @@
     "dev": "concurrently -n=local,main --hide=local -Pk -p=none 'nx dev @jmdx/local' 'tsx watch src/index.ts {@}' --",
     "lint": "nx exec -- eslint . --fix --max-warnings=0 --report-unused-disable-directives --cache",
     "start": "nx exec -- node dist/index.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "nx test --verbose"
   }
 }
