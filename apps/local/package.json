@@ -2,7 +2,10 @@
   "name": "@jmdx/local",
   "type": "module",
   "dependencies": {
+    "@iconify/react": "^4.1.1",
     "@legendapp/state": "^2.1.4",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.15",
     "nanoid": "^5.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

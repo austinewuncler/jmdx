@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { $cells } from '~/cells/state';
+import { Button } from '~/common/components';
 
 import { ClearAllIcon } from '../icons';
 
@@ -9,14 +10,13 @@ const clearCellList = () => {
 };
 
 const ClearCellListButton = () => (
-  <button
-    className="text-primary-light"
+  <Button
+    className="text-primary-light dark:text-primary-dark transition-colors"
     onClick={clearCellList}
     title="clear cell-list"
-    type="button"
   >
     <ClearAllIcon />
-  </button>
+  </Button>
 );
 
 export default ClearCellListButton;

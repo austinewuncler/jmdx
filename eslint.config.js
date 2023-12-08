@@ -87,9 +87,16 @@ export default [
     },
   }),
 
+  // Unicorn
   ...compat.config({
     extends: 'plugin:unicorn/all',
-    rules: { 'unicorn/filename-case': 'off' },
+    rules: {
+      'unicorn/filename-case': 'off',
+      'unicorn/prevent-abbreviations': [
+        'error',
+        { allowList: { Props: true, env: true, props: true } },
+      ],
+    },
   }),
 
   ...compat.extends('plugin:sonarjs/recommended', 'plugin:promise/recommended'),
@@ -104,11 +111,13 @@ export default [
     },
     rules: {
       ...reactAll.rules,
+      'react/forbid-component-props': 'off',
       'react/function-component-definition': [
         'error',
         { namedComponents: 'arrow-function' },
       ],
       'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+      'react/jsx-props-no-spreading': ['error', { exceptions: ['button'] }],
     },
     settings: { react: { version: 'detect' } },
   },
@@ -127,6 +136,7 @@ export default [
             'warn',
             { allowConstantExport: true },
           ],
+          'tailwindcss/classnames-order': 'off',
         },
         settings: {
           tailwindcss: {
