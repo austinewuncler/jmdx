@@ -1,11 +1,15 @@
 import React from 'react';
 
-const MarkdownIcon = () => (
+interface Props {
+  readonly size: number;
+}
+
+const MarkdownIcon = ({ size }: Props) => (
   <svg
     className="text-background-dark dark:text-background-light transition-colors"
-    height="32"
+    height={size}
     viewBox="0 0 24 24"
-    width="32"
+    width={size}
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

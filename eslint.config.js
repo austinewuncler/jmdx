@@ -59,7 +59,7 @@ export default [
         rules: { 'n/no-unpublished-import': 'error' },
       },
       {
-        files: ['**/*.{d,test}.ts?(x)', '**/__test__/*.ts'],
+        files: ['**/*.{d,test}.ts?(x)', '**/__test__/*.ts?(x)'],
         rules: { 'n/no-unpublished-import': 'off' },
       },
     ],
@@ -97,6 +97,12 @@ export default [
         { allowList: { Props: true, env: true, props: true } },
       ],
     },
+  }),
+
+  // Regexp
+  ...compat.config({
+    extends: 'plugin:regexp/all',
+    rules: { 'regexp/require-unicode-sets-regexp': 'off' },
   }),
 
   ...compat.extends('plugin:sonarjs/recommended', 'plugin:promise/recommended'),

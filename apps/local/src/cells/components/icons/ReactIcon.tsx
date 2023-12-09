@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ReactIcon = () => (
+interface Props {
+  readonly size: number;
+}
+
+const ReactIcon = ({ size }: Props) => (
   <svg
-    height="32"
+    height={size}
     viewBox="0 0 24 24"
-    width="32"
+    width={size}
     xmlns="http://www.w3.org/2000/svg"
   >
     <circle cx="12" cy="11.245" fill="#00d8ff" r="1.785" />

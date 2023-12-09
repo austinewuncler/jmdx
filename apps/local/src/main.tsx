@@ -11,7 +11,7 @@ const rootDiv = document.querySelector('#root');
 if (rootDiv)
   createRoot(rootDiv).render(
     <StrictMode>
-      <header className="flex h-16 items-center justify-between px-4">
+      <header className="sticky top-0 flex h-16 items-center justify-between bg-white px-4 transition-colors dark:bg-black">
         <ClearCellListButton />
         <ToggleDarkModeButton />
       </header>

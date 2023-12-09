@@ -19,7 +19,7 @@ const ToggleDarkModeButton = observer(() => {
 
   return (
     <Button
-      className="relative rounded bg-white p-0.5 transition-colors dark:bg-black"
+      className="bg-background-light dark:bg-background-dark relative rounded p-0.5 transition-colors"
       onClick={toggleDarkMode}
       title="toggle dark mode"
     >
@@ -29,7 +29,7 @@ const ToggleDarkModeButton = observer(() => {
         }`}
       >
         <motion.div
-          className="bg-background-light dark:bg-background-dark aspect-square h-full rounded transition-colors"
+          className="aspect-square h-full rounded bg-white transition-colors dark:bg-black"
           layout
           transition={{ type: 'tween' }}
         />

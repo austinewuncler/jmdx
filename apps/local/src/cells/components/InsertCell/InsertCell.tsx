@@ -21,11 +21,11 @@ const InsertCell = ({ index = 0 }: Props) => {
   return (
     <div className="flex items-center justify-center gap-1">
       <Button onClick={insertCell('jsx')} title="insert react cell">
-        <ReactIcon />
+        <ReactIcon size={32} />
       </Button>
       <PlusIcon />
       <Button onClick={insertCell('md')} title="insert markdown cell">
-        <MarkdownIcon />
+        <MarkdownIcon size={32} />
       </Button>
     </div>
   );
